@@ -52,11 +52,13 @@ local trackedCastedAuras = {
     ["Blessing of Salvation"] = (turtle and 10 or 5) * 60,
     ["Blessing of Sanctuary"] = (turtle and 10 or 5) * 60,
     ["Blessing of Kings"] = (turtle and 10 or 5) * 60,
+    ["Blessing of Light"] = (turtle and 10 or 5) * 60,
     ["Greater Blessing of Wisdom"] = (turtle and 30 or 15) * 60,
     ["Greater Blessing of Might"] = (turtle and 30 or 15) * 60,
     ["Greater Blessing of Salvation"] = (turtle and 30 or 15) * 60,
     ["Greater Blessing of Sanctuary"] = (turtle and 30 or 15) * 60,
     ["Greater Blessing of Kings"] = (turtle and 30 or 15) * 60,
+    ["Greater Blessing of Light"] = (turtle and 30 or 15) * 60,
     -- Shaman
     ["Water Walking"] = 10 * 60,
     -- Mage

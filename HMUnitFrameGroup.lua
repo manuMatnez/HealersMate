@@ -126,6 +126,11 @@ function HMUnitFrameGroup:Initialize()
     container:SetScript("OnMouseDown", function()
         local button = arg1
 
+        -- Lock frames MOD
+        if HMOptions.LockFrames then
+            return
+        end
+
         if button ~= "LeftButton" or container.isMoving then
             return
         end

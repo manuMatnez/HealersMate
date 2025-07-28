@@ -105,6 +105,7 @@ function HealersMateSettings.SetDefaults()
             ["CastWhen"] = "Mouse Up", -- Mouse Up, Mouse Down
             ["AutoResurrect"] = HealersMate.ResurrectionSpells[util.GetClass("player")] ~= nil,
             ["UseHealPredictions"] = true,
+            ["LockFrames"] = true,
             ["SetMouseover"] = true,
             ["LFTAutoRole"] = true, -- Turtle WoW
             ["TestUI"] = false,
@@ -226,8 +227,8 @@ do
     -- Tracked buffs for specific classes
     local defaultClassTrackedBuffs = {
         ["PALADIN"] = {"Blessing of Wisdom", "Blessing of Might", "Blessing of Salvation", "Blessing of Sanctuary", 
-            "Blessing of Kings", "Greater Blessing of Wisdom", "Greater Blessing of Might", 
-            "Greater Blssing of Salvation", "Greater Blessing of Sanctuary", "Greater Blessing of Kings", "Daybreak", 
+            "Blessing of Kings", "Blessing of Light", "Greater Blessing of Wisdom", "Greater Blessing of Might", 
+            "Greater Blssing of Salvation", "Greater Blessing of Sanctuary", "Greater Blessing of Kings", "Greater Blessing of Light", "Daybreak", 
             "Blessing of Freedom", "Hand of Freedom", "Redoubt", "Holy Shield"},
         ["PRIEST"] = {"Prayer of Fortitude", "Power Word: Fortitude", "Prayer of Spirit", "Divine Spirit", 
             "Prayer of Shadow Protection", "Shadow Protection", "Holy Champion", "Champion's Grace", "Empower Champion", 
@@ -977,6 +978,27 @@ function InitSettings()
                 UIDropDownMenu_SetSelectedName(inverseKeyDropdown, HMOptions.FrameDrag.AltMoveKey, false)
             end
         end)
+    end
+
+    yOffset = yOffset - 30
+
+    do
+        -- Lock frames MOD
+        local CheckboxLockFramesLabel = optionsFrame:CreateFontString("$parentLockFramesLabel", "OVERLAY", "GameFontNormal")
+        CheckboxLockFramesLabel:SetPoint("RIGHT", optionsFrame, "TOPLEFT", xOffset, yOffset)
+        CheckboxLockFramesLabel:SetText("Lock Heal Frames")
+
+        local CheckboxLockFrames = CreateFrame("CheckButton", "$parentLockFrames", optionsFrame, "UICheckButtonTemplate")
+        CheckboxLockFrames:SetPoint("LEFT", CheckboxLockFramesLabel, "RIGHT", 5, yCheckboxOffset)
+        CheckboxLockFrames:SetWidth(20)
+        CheckboxLockFrames:SetHeight(20)
+        CheckboxLockFrames:SetChecked(HMOptions.LockFrames)
+        CheckboxLockFrames:SetScript("OnClick", function()
+            HMOptions.LockFrames = CheckboxLockFrames:GetChecked() == 1
+        end)
+        ApplyTooltip(CheckboxLockFrames, "Lock frames", 
+            "All frames will be locked")
+
     end
 
     yOffset = yOffset - 30
