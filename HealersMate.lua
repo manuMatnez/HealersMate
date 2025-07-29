@@ -506,6 +506,7 @@ function ApplySpellsTooltip(attachTo, unit, owner)
 
     local spellList = {}
     local modifier = GetKeyModifier()
+
     local settings = HealersMateSettings
     local spells = UnitCanAttack("player", unit) and GetHostileSpells() or GetSpells()
 
@@ -999,11 +1000,14 @@ function EventAddonLoaded()
             spells["Control"]["RightButton"] = "Remove Curse"
         elseif class == "PALADIN" then
             spells["None"]["LeftButton"] = "Flash of Light"
+            spells["None"]["MiddleButton"] = "Holy Shock"
             spells["None"]["RightButton"] = "Holy Light"
             spells["Shift"]["LeftButton"] = "Target"
             spells["Shift"]["MiddleButton"] = "Role"
             spells["Shift"]["RightButton"] = "Context"
-            spells["Control"]["RightButton"] = "Cleanse"
+            spells["Control"]["LeftButton"] = "Cleanse"
+            spells["Control"]["MiddleButton"] = "Hand of Protection"
+            spells["Control"]["RightButton"] = "Hand of Sacrifice"
         elseif class == "SHAMAN" then
             spells["None"]["LeftButton"] = "Healing Wave"
             spells["None"]["RightButton"] = "Lesser Healing Wave"
