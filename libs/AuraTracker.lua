@@ -131,7 +131,7 @@ local aoeAuras = {
 -- Paladins always get their own special stuff..
 -- Their buffs are aoe but apply to the whole raid for a specific class
 local aoeClassAuras = HMUtil.ToSet({
-    "Greater Blessing of Wisdom", "Greater Blessing of Might", "Greater Blssing of Salvation", 
+    "Greater Blessing of Wisdom", "Greater Blessing of Might", "Greater Blessing of Salvation", 
     "Greater Blessing of Sanctuary", "Greater Blessing of Kings"
 })
 
